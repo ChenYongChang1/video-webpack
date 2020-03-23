@@ -3,7 +3,7 @@ import './css/search.less'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import bg from './image/timg.jpg'
-
+import '../../common/index'
 class Search extends React.Component {
   render() {
     return <div className="search-text">

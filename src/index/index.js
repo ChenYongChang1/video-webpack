@@ -1,5 +1,5 @@
 import { helloworld } from './helloworld'
-
+import {common} from '../../common/index'
 class People {
   constructor(name){
     this.name = name
@@ -10,4 +10,5 @@ class People {
 }
 let zxb = new People('zxb')
 console.log(zxb.__str__());
-// document.write(helloworld())
+document.write(helloworld())
+console.log(common());
