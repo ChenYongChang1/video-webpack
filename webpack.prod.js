@@ -133,6 +133,7 @@ module.exports = {
   //     }
   //   }
   // },
+  
   optimization: {
     splitChunks: {
       minSize: 0, //最小打包大小
