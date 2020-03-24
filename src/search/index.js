@@ -4,10 +4,30 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import bg from './image/timg.jpg'
 import '../../common/index'
+import { a } from './tree-shaking'
 class Search extends React.Component {
+  constructor() {
+    super(...arguments)
+
+    this.state = {
+      Text: null
+    }
+  }
+  loadComponent() {
+    import('./test.js').then((Text)=>{
+      this.setState({
+        Text: Text.default
+      })
+    });
+  }
   render() {
+    const funcA = a()
+    const { Text } = this.state;
     return <div className="search-text">
-      Search Text <img src={ bg } />
+      {
+        Text ? <Text /> : null
+      }
+      {funcA}Search Text <img onClick={this.loadComponent.bind(this)} src={ bg } />
       </div>
   }
 }

@@ -106,20 +106,21 @@ module.exports = {
       assetsNameRegExp: /\.css$/g,
       cssProcessor: require('cssnano')
     }),
-    // new htmlWebpackExternalsPlugins({
-    //   externals: [
-    //     {
-    //       module: 'react',
-    //       entry: 'https://unpkg.com/react@16/umd/react.development.js',
-    //       global: 'React'
-    //     },
-    //     {
-    //       module: 'react-dom',
-    //       entry: 'https://unpkg.com/react-dom@16/umd/react-dom.development.js',
-    //       global: 'ReactDOM'
-    //     },
-    //   ]
-    // })
+    // new webpack.optimize.ModuleConcatenationPlugin() //默认production开启
+    new htmlWebpackExternalsPlugins({
+      externals: [
+        {
+          module: 'react',
+          entry: 'https://unpkg.com/react@16/umd/react.development.js',
+          global: 'React'
+        },
+        {
+          module: 'react-dom',
+          entry: 'https://unpkg.com/react-dom@16/umd/react-dom.development.js',
+          global: 'ReactDOM'
+        },
+      ]
+    })
   ],
   //打包进vendors, 需要在htmlwebpackplugins 中chunks中使用
   // optimization: {
