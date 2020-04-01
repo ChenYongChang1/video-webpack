@@ -59,7 +59,12 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: ['babel-loader']
+        use: [{
+          loader:'thread-loader',
+          options:{
+            workers: 3
+          }
+        },'babel-loader']
       },
       {
         test: /\.(le|c)ss$/,
